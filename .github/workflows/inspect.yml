@@ -1,0 +1,17 @@
+name: Douban KC Inspect
+
+on:
+  schedule:
+    - cron: '0 4,10,16,22 * * *'  # UTC = CST 12/18/0/6
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run inspect
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: bash scripts/inspect.sh
