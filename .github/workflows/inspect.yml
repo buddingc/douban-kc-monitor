@@ -2,7 +2,7 @@ name: Douban KC Inspect
 
 on:
   schedule:
-    - cron: '0 4,10,16,22 * * *'  # UTC = CST 12/18/0/6
+    - cron: '*/5 * * * *'  # TEST: every 5 min — restore to '0 4,10,16,22 * * *' (CST 12/18/0/6) after verify
   workflow_dispatch:
 
 jobs:
